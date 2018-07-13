@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Track</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+   
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+     <div class="container">
+    <div>
+    <% if user_signed_in? %>
+      <span>Hello, <%= current_user.email %></span>
+      <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path %> or <%= link_to 'Registration', new_user_registration_path %>
+    <% end %>
+    </div>
+  <!--
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>-->
+  <% if user_signed_in? %>
+<menu class="navbar navbar-expand-sm bg-light navbar-light">
+  <li class="navbar-brand"><%= link_to 'Home', root_path %></li>
+  <li class="navbar-brand"><%= link_to 'Income Categories', income_categories_path %></li>
+  <li class="navbar-brand"><%= link_to 'Expense Categories',expense_categories_path%></li>
+  <li class="navbar-brand"><%= link_to 'Incomes', incomes_path %></li>
+  <li class="navbar-brand"><%= link_to 'Expenses',expenses_path%></li>
+  <li class="navbar-brand"><%= link_to 'Report','/report/index'%></li>
+</menu>
+<% else %>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+ <li class="navbar-brand"><%= link_to 'Home', root_path %></li>
+ </nav>
+<% end %>
+
+    <%= yield %>
+  </div>
+  </body>
+</html>

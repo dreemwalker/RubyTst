@@ -1,0 +1,41 @@
+
+<h3>Incomes</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Sum</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incomes.each do |income| %>
+      <tr>
+        <td><%= income.catname %></td>
+        <td><%= income.sum %></td>
+        <td><%= income.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <h3>Expenses</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Sum</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.catname %></td>
+        <td><%= expense.sum %></td>
+        <td><%= expense.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

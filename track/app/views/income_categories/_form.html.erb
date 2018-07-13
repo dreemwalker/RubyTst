@@ -1,0 +1,31 @@
+<%= form_with(model: income_category, local: true) do |form| %>
+  <% if income_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(income_category.errors.count, "error") %> prohibited this income_category from being saved:</h2>
+      <ul>
+      <% income_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+<div class="container">
+   <div class="row"  hidden="true">
+    <%= form.label  :userID  %>
+    <%= form.number_field :userID, :value => current_user.id  %>
+  </div>
+  <div class="row">
+    <div  class="col-2">
+    <%= form.label :name %>
+    </div>
+    <div class="col-4">
+    <%= form.text_field :name %>
+    </div>
+  </div>
+   <br>
+  <div class="row">
+    <%= form.submit %>
+  </div>
+</div>
+<% end %>

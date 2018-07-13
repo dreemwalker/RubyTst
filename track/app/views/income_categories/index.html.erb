@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Income Categories</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @income_categories.each do |income_category| %>
+      <tr>
+        <td><%= income_category.name %></td>
+        <td><%= link_to 'Edit', edit_income_category_path(income_category) %></td>
+        <td><%= link_to 'Delete', income_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Income Category', new_income_category_path %>

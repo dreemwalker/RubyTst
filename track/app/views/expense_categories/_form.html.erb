@@ -1,0 +1,33 @@
+<%= form_with(model: expense_category, local: true) do |form| %>
+  <% if expense_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expense_category.errors.count, "error") %> prohibited this expense_category from being saved:</h2>
+      <ul>
+      <% expense_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+<div class="container">
+   <div class="row"  hidden="true">
+    <%= form.label  :userID  %>
+    <%= form.number_field :userID, :value => current_user.id  %>
+</div>
+  <div class="row">
+     <div class="col-2" >
+    <%= form.label :name  %>
+    </div>
+  <div class="col-4">
+    <%= form.text_field :name %>
+  </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-2">
+    <%= form.submit %>
+    </div>
+  </div>
+</div>
+<% end %>
